@@ -28,7 +28,7 @@ public class Scripture
             }
         }
 
-        int numberToHide = rand.Next(1, 4); // hide 1 to 3 words
+        int numberToHide = rand.Next(1, 4); 
 
         for (int i = 0; i < numberToHide && visibleIndexes.Count > 0; i++)
         {
