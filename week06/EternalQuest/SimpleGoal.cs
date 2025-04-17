@@ -8,21 +8,24 @@ public class SimpleGoal : Goal
         _isComplete = false;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        _isComplete = true;
-        Console.WriteLine($"You earned {_points} points!");
+        if (!_isComplete)
+        {
+            _isComplete = true;
+            return _points;
+        }
+        return 0;
     }
-
-    public override bool IsComplete() => _isComplete;
 
     public override string GetDetailsString()
     {
-        return $"[{(_isComplete ? "X" : " ")}] {_shortName} ({_description})";
+        string status = _isComplete ? "[X]" : "[ ]";
+        return $"{status} {_shortName} ({_description})";
     }
 
-    public override string GetStringRepresentation()
+    public override string GetSaveString()
     {
-        return $"SimpleGoal:{_shortName},{_description},{_points},{_isComplete}";
+        return $"SimpleGoal|{_shortName}|{_description}|{_points}|{_isComplete}";
     }
 }

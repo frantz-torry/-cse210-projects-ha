@@ -131,7 +131,7 @@ public class GoalManager
                     SimpleGoal goal = new SimpleGoal(name, description, points);
                     if (isComplete)
                     {
-                        goal.RecordEvent(); // mark as complete if saved as complete
+                        goal.RecordEvent(); 
                     }
 
                     _goals.Add(goal);
